@@ -38,11 +38,8 @@ func _process(_delta: float) -> void:
 					times_written_calm += 1
 					%MButton.disabled = true
 					
-					OS.delay_msec(50)
-					%CButton.disabled = false
-					%AButton.disabled = false
-					%LButton.disabled = false
-					%MButton.disabled = false
+					await get_tree().create_timer(0.05).timeout
+					reset_letter_buttons()
 					
 		if times_written_calm == TIMES_NEEDED:
 			times_written_calm = 0
@@ -50,7 +47,14 @@ func _process(_delta: float) -> void:
 			
 			%BedWithDog.play("asleep")
 			%ComfortMinigame.visible = false
-			
+
+
+func reset_letter_buttons() -> void:
+	%CButton.disabled = false
+	%AButton.disabled = false
+	%LButton.disabled = false
+	%MButton.disabled = false
+
 
 func pulse_tip():
 	var tween: Tween = create_tween()

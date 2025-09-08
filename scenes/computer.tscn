@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://cyfra7gbggvyf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sc3q"]
+bg_color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_om4aa"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ikar"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiul0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rysoc"]
+bg_color = Color(0.04508, 0.179687, 0.0675439, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8pqrt"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Theme" id="Theme_kvpfn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjrug"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruko6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
+bg_color = Color(0.0423218, 0.216637, 0.19826, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Computer" type="CanvasLayer"]
+
+[node name="TabContainer" type="TabContainer" parent="."]
+z_index = 3
+offset_top = 68.0
+offset_right = 1920.0
+offset_bottom = 981.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7sc3q")
+tab_alignment = 1
+current_tab = 0
+
+[node name="math_assignment_txt" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MathTextTemplate" type="TextEdit" parent="TabContainer/math_assignment_txt"]
+layout_mode = 2
+offset_left = 627.0
+offset_top = 37.0
+offset_right = 1324.0
+offset_bottom = 853.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_om4aa")
+placeholder_text = "TOPIC: Central limit theorem
+
+In probability theory, the central limit theorem (CLT) states that, under appropriate conditions, the distribution of a normalized version of the sample mean converges to a standard normal distribution. This holds even if the original variables themselves are not normally distributed. There are several versions of the CLT, each applying in the context of different conditions.
+
+The theorem is a key concept in probability theory because it implies that probabilistic and statistical methods that work for normal distributions can be applicable to many problems involving other types of distributions."
+wrap_mode = 1
+
+[node name="MathTextEdit" type="TextEdit" parent="TabContainer/math_assignment_txt"]
+layout_mode = 2
+offset_left = 627.0
+offset_top = 37.0
+offset_right = 1324.0
+offset_bottom = 853.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ikar")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uiul0")
+wrap_mode = 1
+
+[node name="MathSubmitButton" type="Button" parent="TabContainer/math_assignment_txt"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 796.0
+offset_right = 1175.0
+offset_bottom = 837.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rysoc")
+text = "Submit Math Homework"
+
+[node name="english_assignment_txt" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="EnglishTextTemplate" type="TextEdit" parent="TabContainer/english_assignment_txt"]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 37.0
+offset_right = 1324.0
+offset_bottom = 853.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_8pqrt")
+placeholder_text = "TOPIC: Romeo and Juliet
+
+The Tragedy of Romeo and Juliet, often shortened to Romeo and Juliet, is a tragedy written by William Shakespeare about the romance between two young Italians from feuding families. It was among Shakespeare's most popular plays during his lifetime and, along with Hamlet, is one of his most frequently performed. Today, the title characters are regarded as archetypal young lovers.
+
+Romeo and Juliet belongs to a tradition of tragic romances stretching back to antiquity. Believed to have been written between 1591 and 1595, the play was first published in a quarto version in 1597. The text of the first quarto version was of poor quality, however, and later editions corrected the text to conform more closely with Shakespeare's original."
+wrap_mode = 1
+
+[node name="EnglishTextEdit" type="TextEdit" parent="TabContainer/english_assignment_txt"]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 37.0
+offset_right = 1324.0
+offset_bottom = 853.0
+theme = SubResource("Theme_kvpfn")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjrug")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ruko6")
+wrap_mode = 1
+
+[node name="EnglishSubmitButton" type="Button" parent="TabContainer/english_assignment_txt"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 796.0
+offset_right = 1175.0
+offset_bottom = 837.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ssvqc")
+text = "Submit English Homework"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

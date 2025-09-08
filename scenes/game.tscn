@@ -2,31 +2,18 @@
 
 [ext_resource type="Script" uid="uid://b21inrm10ie7e" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d2dulgpycwl2c" path="res://scenes/hud.tscn" id="2_ir15t"]
-[ext_resource type="Script" uid="uid://ciljg5p0vjsfb" path="res://scripts/door.gd" id="2_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://bmwjmjm7toivr" path="res://assets/frames/door/door_opened.PNG" id="2_yqjtg"]
-[ext_resource type="Texture2D" uid="uid://rqsxnwc5u81k" path="res://assets/frames/door/door_closed.PNG" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cyfra7gbggvyf" path="res://scenes/computer.tscn" id="3_dinhu"]
 [ext_resource type="Texture2D" uid="uid://cnffswmoluptc" path="res://assets/frames/table/table_door_closed.PNG" id="5_p57ef"]
 [ext_resource type="Script" uid="uid://b7fh15nlnvsp7" path="res://scripts/table.gd" id="5_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://dwvfl2drbfmo5" path="res://assets/frames/table/table_door_opened.PNG" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://c88olol1bcqww" path="res://scenes/door.tscn" id="7_trtic"]
 [ext_resource type="PackedScene" uid="uid://koadpcy2qhwu" path="res://scenes/bed.tscn" id="9_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://qhgwmcxod4yg" path="res://assets/sfx/ambience_horror.mp3" id="13_trtic"]
+[ext_resource type="AudioStream" uid="uid://3ibfw4lqy1ch" path="res://assets/sfx/ambience_clock.mp3" id="14_ir15t"]
+[ext_resource type="AudioStream" uid="uid://cfje741fmstt7" path="res://assets/sfx/dog_pant.mp3" id="15_ca42v"]
+[ext_resource type="AudioStream" uid="uid://dv3ex14y8f205" path="res://assets/sfx/dog_snore.mp3" id="15_ir15t"]
 [ext_resource type="Texture2D" uid="uid://cj3f87h3xuo6i" path="res://assets/frames/jumpscare/dad.PNG" id="16_ca42v"]
 [ext_resource type="Texture2D" uid="uid://k85goggo50ob" path="res://assets/frames/jumpscare/mom.PNG" id="17_rysoc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rysoc"]
-bg_color = Color(0.249921, 0.706195, 0.330611, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="Theme" id="Theme_kvpfn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
-bg_color = Color(0.210912, 0.6832, 0.633318, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
@@ -34,91 +21,8 @@ script = ExtResource("1_uwrxv")
 [node name="HUD" parent="." instance=ExtResource("2_ir15t")]
 layer = 2
 
-[node name="Computer" type="CanvasLayer" parent="."]
+[node name="Computer" parent="." instance=ExtResource("3_dinhu")]
 unique_name_in_owner = true
-visible = false
-
-[node name="TabContainer" type="TabContainer" parent="Computer"]
-z_index = 3
-offset_top = 68.0
-offset_right = 1920.0
-offset_bottom = 981.0
-tab_alignment = 1
-current_tab = 0
-
-[node name="math_assignment_txt" type="Control" parent="Computer/TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="MathTextTemplate" type="TextEdit" parent="Computer/TabContainer/math_assignment_txt"]
-layout_mode = 2
-offset_left = 627.0
-offset_top = 37.0
-offset_right = 1324.0
-offset_bottom = 853.0
-theme_override_font_sizes/font_size = 25
-placeholder_text = "TOPIC: Central limit theorem
-
-In probability theory, the central limit theorem (CLT) states that, under appropriate conditions, the distribution of a normalized version of the sample mean converges to a standard normal distribution. This holds even if the original variables themselves are not normally distributed. There are several versions of the CLT, each applying in the context of different conditions.
-
-The theorem is a key concept in probability theory because it implies that probabilistic and statistical methods that work for normal distributions can be applicable to many problems involving other types of distributions."
-wrap_mode = 1
-
-[node name="MathTextEdit" type="TextEdit" parent="Computer/TabContainer/math_assignment_txt"]
-layout_mode = 2
-offset_left = 627.0
-offset_top = 37.0
-offset_right = 1324.0
-offset_bottom = 853.0
-theme_override_font_sizes/font_size = 25
-wrap_mode = 1
-
-[node name="MathSubmitButton" type="Button" parent="Computer/TabContainer/math_assignment_txt"]
-layout_mode = 0
-offset_left = 760.0
-offset_top = 796.0
-offset_right = 1175.0
-offset_bottom = 837.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_rysoc")
-text = "Submit Math Homework"
-
-[node name="english_assignment_txt" type="Control" parent="Computer/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="EnglishTextTemplate" type="TextEdit" parent="Computer/TabContainer/english_assignment_txt"]
-layout_mode = 0
-offset_left = 627.0
-offset_top = 37.0
-offset_right = 1324.0
-offset_bottom = 853.0
-theme_override_font_sizes/font_size = 25
-placeholder_text = "TOPIC: Romeo and Juliet
-
-The Tragedy of Romeo and Juliet, often shortened to Romeo and Juliet, is a tragedy written by William Shakespeare about the romance between two young Italians from feuding families. It was among Shakespeare's most popular plays during his lifetime and, along with Hamlet, is one of his most frequently performed. Today, the title characters are regarded as archetypal young lovers.
-
-Romeo and Juliet belongs to a tradition of tragic romances stretching back to antiquity. Believed to have been written between 1591 and 1595, the play was first published in a quarto version in 1597. The text of the first quarto version was of poor quality, however, and later editions corrected the text to conform more closely with Shakespeare's original."
-wrap_mode = 1
-
-[node name="EnglishTextEdit" type="TextEdit" parent="Computer/TabContainer/english_assignment_txt"]
-layout_mode = 0
-offset_left = 627.0
-offset_top = 37.0
-offset_right = 1324.0
-offset_bottom = 853.0
-theme = SubResource("Theme_kvpfn")
-theme_override_font_sizes/font_size = 25
-wrap_mode = 1
-
-[node name="EnglishSubmitButton" type="Button" parent="Computer/TabContainer/english_assignment_txt"]
-layout_mode = 0
-offset_left = 760.0
-offset_top = 796.0
-offset_right = 1175.0
-offset_bottom = 837.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ssvqc")
-text = "Submit English Homework"
 
 [node name="Table" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -135,22 +39,8 @@ z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("6_u5sy4")
 
-[node name="Door" type="CanvasLayer" parent="."]
+[node name="Door" parent="." instance=ExtResource("7_trtic")]
 unique_name_in_owner = true
-visible = false
-script = ExtResource("2_lnu2h")
-
-[node name="DoorClosed" type="Sprite2D" parent="Door"]
-unique_name_in_owner = true
-visible = false
-position = Vector2(960, 540)
-texture = ExtResource("4_lbhrr")
-
-[node name="DoorOpen" type="Sprite2D" parent="Door"]
-unique_name_in_owner = true
-z_index = -1
-position = Vector2(960, 540)
-texture = ExtResource("2_yqjtg")
 
 [node name="Bed" parent="." instance=ExtResource("9_kvpfn")]
 unique_name_in_owner = true
@@ -172,3 +62,22 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(960, 540)
 texture = ExtResource("17_rysoc")
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="AmbienceHorror" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("13_trtic")
+volume_db = -5.0
+
+[node name="AmbienceClock" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("14_ir15t")
+
+[node name="DogPant" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("15_ca42v")
+
+[node name="DogSnore" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("15_ir15t")

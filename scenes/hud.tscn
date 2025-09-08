@@ -78,6 +78,7 @@ v
 v"
 
 [node name="PanelHitbox" type="CollisionShape2D" parent="BottomPanelAreaDown"]
+z_index = 9
 position = Vector2(-845, 1019.5)
 shape = SubResource("RectangleShape2D_oo0fn")
 
@@ -110,6 +111,7 @@ text = "<<"
 
 [node name="PanelHitbox" type="CollisionShape2D" parent="LeftPanelArea"]
 unique_name_in_owner = true
+z_index = 9
 position = Vector2(59.5, 540)
 shape = SubResource("RectangleShape2D_trtic")
 
@@ -142,6 +144,7 @@ theme_override_font_sizes/font_size = 25
 text = ">>"
 
 [node name="PanelHitbox" type="CollisionShape2D" parent="RightPanelArea"]
+z_index = 9
 position = Vector2(50, 540)
 shape = SubResource("RectangleShape2D_toqtt")
 
@@ -178,6 +181,7 @@ text = "^
 ^"
 
 [node name="PanelHitbox" type="CollisionShape2D" parent="BottomPanelArea"]
+z_index = 9
 position = Vector2(-845, 1025.5)
 shape = SubResource("RectangleShape2D_ahhtf")
 

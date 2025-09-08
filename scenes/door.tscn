@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c88olol1bcqww"]
+
+[ext_resource type="Script" uid="uid://ciljg5p0vjsfb" path="res://scripts/door.gd" id="1_83dcw"]
+[ext_resource type="Texture2D" uid="uid://rqsxnwc5u81k" path="res://assets/frames/door/door_closed.PNG" id="2_la1wf"]
+[ext_resource type="Texture2D" uid="uid://bmwjmjm7toivr" path="res://assets/frames/door/door_opened.PNG" id="3_18pbm"]
+[ext_resource type="AudioStream" uid="uid://ph415f0vdwbo" path="res://assets/sfx/door_open.mp3" id="4_18pbm"]
+[ext_resource type="AudioStream" uid="uid://epq4y7u853i8" path="res://assets/sfx/door_closed.mp3" id="5_q5w8r"]
+
+[node name="Door" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_83dcw")
+
+[node name="DoorClosed" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("2_la1wf")
+
+[node name="DoorOpen" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("3_18pbm")
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_18pbm")
+volume_db = -20.0
+
+[node name="CloseDoor" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_q5w8r")
+volume_db = -30.0

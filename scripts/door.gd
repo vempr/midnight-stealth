@@ -5,6 +5,8 @@ func _process(_delta: float) -> void:
 		if %DoorClosed.visible == false:
 			Globals.door_closed = true
 			%DoorClosed.visible = true
+			%CloseDoor.play()
 		else:
 			Globals.door_closed = false
 			%DoorClosed.visible = false
+			%OpenDoor.play()
