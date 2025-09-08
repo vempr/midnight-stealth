@@ -1,6 +1,96 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8d10lgs4m4nr"]
+[gd_scene load_steps=17 format=3 uid="uid://b8d10lgs4m4nr"]
 
 [ext_resource type="Script" uid="uid://b21inrm10ie7e" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://d2dulgpycwl2c" path="res://scenes/hud.tscn" id="2_ir15t"]
+[ext_resource type="Script" uid="uid://ciljg5p0vjsfb" path="res://scripts/door.gd" id="2_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://bmwjmjm7toivr" path="res://assets/frames/door/door_opened.PNG" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://rqsxnwc5u81k" path="res://assets/frames/door/door_closed.PNG" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://cnffswmoluptc" path="res://assets/frames/table/table_door_closed.PNG" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://b7fh15nlnvsp7" path="res://scripts/table.gd" id="5_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://dwvfl2drbfmo5" path="res://assets/frames/table/table_door_opened.PNG" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://bua6nw7akb82v" path="res://scripts/bed.gd" id="8_trtic"]
+[ext_resource type="Texture2D" uid="uid://coqcnmdd0cbj4" path="res://assets/frames/bed/bed_dog_asleep_1.PNG" id="8_vtaks"]
+[ext_resource type="Texture2D" uid="uid://dshclfn618hle" path="res://assets/frames/bed/bed_dog_asleep_2.PNG" id="9_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://bojn36lq46po1" path="res://assets/frames/bed/bed_dog_asleep_3.PNG" id="10_dinhu"]
+[ext_resource type="Texture2D" uid="uid://bgdbc3yhn1km5" path="res://assets/frames/bed/bed_dog_awake_1.PNG" id="11_kvuet"]
+[ext_resource type="Texture2D" uid="uid://dencb5rtlps1p" path="res://assets/frames/bed/bed_dog_awake_2.PNG" id="12_trtic"]
+[ext_resource type="Texture2D" uid="uid://vcx6yf0g4pro" path="res://assets/frames/bed/bed_dog_awake_3.PNG" id="13_ir15t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5sy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vtaks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kvpfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dinhu")
+}],
+"loop": true,
+"name": &"asleep",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_kvuet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_trtic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ir15t")
+}],
+"loop": true,
+"name": &"awake",
+"speed": 2.0
+}]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
+
+[node name="HUD" parent="." instance=ExtResource("2_ir15t")]
+
+[node name="Table" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_u5sy4")
+
+[node name="TableDoorClosed" type="Sprite2D" parent="Table"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("5_p57ef")
+
+[node name="TableDoorOpen" type="Sprite2D" parent="Table"]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("6_u5sy4")
+
+[node name="Door" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("2_lnu2h")
+
+[node name="DoorClosed" type="Sprite2D" parent="Door"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("4_lbhrr")
+
+[node name="DoorOpen" type="Sprite2D" parent="Door"]
+unique_name_in_owner = true
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("2_yqjtg")
+
+[node name="Bed" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("8_trtic")
+
+[node name="BedWithDog" type="AnimatedSprite2D" parent="Bed"]
+unique_name_in_owner = true
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_u5sy4")
+animation = &"asleep"
