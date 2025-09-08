@@ -93,4 +93,62 @@ script = ExtResource("8_trtic")
 unique_name_in_owner = true
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_u5sy4")
-animation = &"asleep"
+animation = &"awake"
+
+[node name="ComfortMinigame" type="Control" parent="Bed"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DogTip" type="Label" parent="Bed/ComfortMinigame"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 664.0
+offset_top = 615.0
+offset_right = 833.0
+offset_bottom = 643.0
+theme_override_font_sizes/font_size = 15
+text = "(type 'calm' 5x)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bed/ComfortMinigame"]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 643.0
+offset_right = 817.0
+offset_bottom = 693.0
+metadata/_edit_group_ = true
+
+[node name="CButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = " C "
+
+[node name="AButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = " A "
+
+[node name="LButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = " L "
+
+[node name="MButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = " M "
+
+[node name="DogComfortCooldownTimer" type="Timer" parent="Bed"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="DogComfortDeadline" type="Timer" parent="Bed"]
+unique_name_in_owner = true
+wait_time = 100.0
+one_shot = true
+
+[connection signal="timeout" from="Bed/DogComfortCooldownTimer" to="Bed" method="_on_dog_comfort_cooldown_timer_timeout"]
+[connection signal="timeout" from="Bed/DogComfortDeadline" to="Bed" method="_on_dog_comfort_deadline_timeout"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match Globals.place:
 		Globals.Place.TABLE:
 			%Table.visible = true
