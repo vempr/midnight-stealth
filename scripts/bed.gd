@@ -9,7 +9,7 @@ var next_letter: Letter = Letter.C
 
 func _ready() -> void: 
 	%BedWithDog.play("asleep")
-	%DogComfortCooldownTimer.start(5)
+	%DogComfortCooldownTimer.start(25 + randf() * 20)
 	
 	pulse_tip()
 

@@ -1,0 +1,18 @@
+## Assets & Sources
+- Laptop from https://pngtree.com/free-png-vectors/laptop
+- Dog SFX from..
+-- https://pixabay.com/sound-effects/little-dog-snoring-23603/
+-- https://freesound.org/people/keweldog/sounds/181767/
+- Walking SFX from..
+--
+--
+- Door SFX from..
+--
+--
+- Jumpscare SFX from
+- Background SFX from..
+--
+--
+- Assignment texts from..
+-- https://en.wikipedia.org/wiki/Central_limit_theorem
+--

@@ -39,28 +39,23 @@ size = Vector2(120, 1006)
 size = Vector2(1008, 111)
 
 [node name="HUD" type="CanvasLayer"]
-layer = 2
+layer = 3
 script = ExtResource("1_ahhtf")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
-columns = 3
-
-[node name="BottomPanelAreaDown" type="Area2D" parent="GridContainer"]
+[node name="BottomPanelAreaDown" type="Area2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(1810, 0)
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="GridContainer/BottomPanelAreaDown"]
+[node name="Panel" type="Panel" parent="BottomPanelAreaDown"]
 offset_left = -1350.0
 offset_top = 997.0
 offset_right = -340.0
 offset_bottom = 1043.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ahhtf")
 
-[node name="Label" type="Label" parent="GridContainer/BottomPanelAreaDown/Panel"]
+[node name="Label" type="Label" parent="BottomPanelAreaDown/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -82,22 +77,22 @@ v
 
 v"
 
-[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/BottomPanelAreaDown"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="BottomPanelAreaDown"]
 position = Vector2(-845, 1019.5)
 shape = SubResource("RectangleShape2D_oo0fn")
 
-[node name="LeftPanelArea" type="Area2D" parent="GridContainer"]
+[node name="LeftPanelArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="GridContainer/LeftPanelArea"]
+[node name="Panel" type="Panel" parent="LeftPanelArea"]
 offset_left = 35.0
 offset_top = 164.0
 offset_right = 81.0
 offset_bottom = 916.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_trtic")
 
-[node name="Label" type="Label" parent="GridContainer/LeftPanelArea/Panel"]
+[node name="Label" type="Label" parent="LeftPanelArea/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,24 +108,24 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "<<"
 
-[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/LeftPanelArea"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="LeftPanelArea"]
 unique_name_in_owner = true
 position = Vector2(59.5, 540)
 shape = SubResource("RectangleShape2D_trtic")
 
-[node name="RightPanelArea" type="Area2D" parent="GridContainer"]
+[node name="RightPanelArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1810, 0)
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="GridContainer/RightPanelArea"]
+[node name="Panel" type="Panel" parent="RightPanelArea"]
 offset_left = 35.0
 offset_top = 164.0
 offset_right = 81.0
 offset_bottom = 916.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_trtic")
 
-[node name="Label" type="Label" parent="GridContainer/RightPanelArea/Panel"]
+[node name="Label" type="Label" parent="RightPanelArea/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -146,23 +141,23 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = ">>"
 
-[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/RightPanelArea"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="RightPanelArea"]
 position = Vector2(50, 540)
 shape = SubResource("RectangleShape2D_toqtt")
 
-[node name="BottomPanelArea" type="Area2D" parent="GridContainer"]
+[node name="BottomPanelArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1810, 0)
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="GridContainer/BottomPanelArea"]
+[node name="Panel" type="Panel" parent="BottomPanelArea"]
 offset_left = -1350.0
 offset_top = 997.0
 offset_right = -340.0
 offset_bottom = 1043.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_trtic")
 
-[node name="Label" type="Label" parent="GridContainer/BottomPanelArea/Panel"]
+[node name="Label" type="Label" parent="BottomPanelArea/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -182,11 +177,11 @@ text = "^
 ^
 ^"
 
-[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/BottomPanelArea"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="BottomPanelArea"]
 position = Vector2(-845, 1025.5)
 shape = SubResource("RectangleShape2D_ahhtf")
 
-[connection signal="mouse_entered" from="GridContainer/BottomPanelAreaDown" to="." method="_on_bottom_panel_area_down_mouse_entered"]
-[connection signal="mouse_entered" from="GridContainer/LeftPanelArea" to="." method="_on_left_panel_area_mouse_entered"]
-[connection signal="mouse_entered" from="GridContainer/RightPanelArea" to="." method="_on_right_panel_area_mouse_entered"]
-[connection signal="mouse_entered" from="GridContainer/BottomPanelArea" to="." method="_on_bottom_panel_area_mouse_entered"]
+[connection signal="mouse_entered" from="BottomPanelAreaDown" to="." method="_on_bottom_panel_area_down_mouse_entered"]
+[connection signal="mouse_entered" from="LeftPanelArea" to="." method="_on_left_panel_area_mouse_entered"]
+[connection signal="mouse_entered" from="RightPanelArea" to="." method="_on_right_panel_area_mouse_entered"]
+[connection signal="mouse_entered" from="BottomPanelArea" to="." method="_on_bottom_panel_area_mouse_entered"]
