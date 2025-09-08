@@ -82,7 +82,7 @@ v
 
 v"
 
-[node name="RightPanelHitbox" type="CollisionShape2D" parent="GridContainer/BottomPanelAreaDown"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/BottomPanelAreaDown"]
 position = Vector2(-845, 1019.5)
 shape = SubResource("RectangleShape2D_oo0fn")
 
@@ -113,7 +113,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "<<"
 
-[node name="LeftPanelHitbox" type="CollisionShape2D" parent="GridContainer/LeftPanelArea"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/LeftPanelArea"]
 unique_name_in_owner = true
 position = Vector2(59.5, 540)
 shape = SubResource("RectangleShape2D_trtic")
@@ -146,7 +146,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = ">>"
 
-[node name="RightPanelHitbox" type="CollisionShape2D" parent="GridContainer/RightPanelArea"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/RightPanelArea"]
 position = Vector2(50, 540)
 shape = SubResource("RectangleShape2D_toqtt")
 
@@ -182,7 +182,7 @@ text = "^
 ^
 ^"
 
-[node name="RightPanelHitbox" type="CollisionShape2D" parent="GridContainer/BottomPanelArea"]
+[node name="PanelHitbox" type="CollisionShape2D" parent="GridContainer/BottomPanelArea"]
 position = Vector2(-845, 1025.5)
 shape = SubResource("RectangleShape2D_ahhtf")
 

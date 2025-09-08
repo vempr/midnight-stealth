@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8d10lgs4m4nr"]
+[gd_scene load_steps=19 format=3 uid="uid://b8d10lgs4m4nr"]
 
 [ext_resource type="Script" uid="uid://b21inrm10ie7e" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d2dulgpycwl2c" path="res://scenes/hud.tscn" id="2_ir15t"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bgdbc3yhn1km5" path="res://assets/frames/bed/bed_dog_awake_1.PNG" id="11_kvuet"]
 [ext_resource type="Texture2D" uid="uid://dencb5rtlps1p" path="res://assets/frames/bed/bed_dog_awake_2.PNG" id="12_trtic"]
 [ext_resource type="Texture2D" uid="uid://vcx6yf0g4pro" path="res://assets/frames/bed/bed_dog_awake_3.PNG" id="13_ir15t"]
+[ext_resource type="Texture2D" uid="uid://cj3f87h3xuo6i" path="res://assets/frames/jumpscare/dad.PNG" id="16_ca42v"]
+[ext_resource type="Texture2D" uid="uid://k85goggo50ob" path="res://assets/frames/jumpscare/mom.PNG" id="17_rysoc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u5sy4"]
 animations = [{
@@ -54,6 +56,7 @@ script = ExtResource("1_uwrxv")
 
 [node name="Table" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 script = ExtResource("5_u5sy4")
 
 [node name="TableDoorClosed" type="Sprite2D" parent="Table"]
@@ -103,13 +106,30 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="TimeLeft" type="Label" parent="Bed/ComfortMinigame"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 814.0
+offset_top = 635.0
+offset_right = 854.0
+offset_bottom = 658.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.431373)
+text = "20.0s"
+
 [node name="DogTip" type="Label" parent="Bed/ComfortMinigame"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 664.0
-offset_top = 615.0
-offset_right = 833.0
-offset_bottom = 643.0
+layout_mode = 1
+offset_left = 665.0
+offset_top = 612.0
+offset_right = 773.0
+offset_bottom = 634.0
 theme_override_font_sizes/font_size = 15
 text = "(type 'calm' 5x)"
 
@@ -122,21 +142,25 @@ offset_bottom = 693.0
 metadata/_edit_group_ = true
 
 [node name="CButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = " C "
 
 [node name="AButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = " A "
 
 [node name="LButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = " L "
 
 [node name="MButton" type="Button" parent="Bed/ComfortMinigame/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = " M "
@@ -149,6 +173,23 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 100.0
 one_shot = true
+
+[node name="Jumpscare" type="CanvasLayer" parent="Bed"]
+unique_name_in_owner = true
+layer = 2
+visible = false
+
+[node name="DadJumpscare" type="Sprite2D" parent="Bed/Jumpscare"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("16_ca42v")
+
+[node name="MomJumpscare" type="Sprite2D" parent="Bed/Jumpscare"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("17_rysoc")
 
 [connection signal="timeout" from="Bed/DogComfortCooldownTimer" to="Bed" method="_on_dog_comfort_cooldown_timer_timeout"]
 [connection signal="timeout" from="Bed/DogComfortDeadline" to="Bed" method="_on_dog_comfort_deadline_timeout"]
