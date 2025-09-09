@@ -3,6 +3,10 @@ extends CanvasLayer
 var can_switch := true
 
 
+func _ready() -> void:
+	%Computer.computer_done.connect(_on_computer_done)
+
+
 func _process(_delta: float) -> void:
 	match Globals.place:
 		Globals.Place.TABLE:
@@ -73,3 +77,7 @@ func _on_bottom_panel_area_mouse_entered() -> void:
 		can_switch = false
 		await get_tree().create_timer(0.2).timeout
 		can_switch = true
+
+
+func _on_computer_done() -> void:
+	%SleepNotification.visible = true

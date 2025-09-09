@@ -8,6 +8,8 @@ var next_letter: Letter = Letter.C
 
 
 func _ready() -> void: 
+	%Computer.computer_done.connect(_on_computer_done)
+	
 	%BedWithDog.play("asleep")
 	%DogComfortCooldownTimer.start(Globals.functions["getDogComfortCooldownTimer"].call())
 	
@@ -79,3 +81,11 @@ func _on_dog_comfort_cooldown_timer_timeout() -> void:
 func _on_dog_comfort_deadline_timeout() -> void:
 	if Globals.dog_distressed == true:
 		Globals.lost_to = Globals.Enemy.DAD
+
+
+func _on_computer_done() -> void:
+	%SleepButton.visible = true
+
+
+func _on_sleep_button_pressed() -> void:
+	print("game win!")

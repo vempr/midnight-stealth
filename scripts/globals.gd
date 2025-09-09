@@ -12,7 +12,7 @@ var functions = {
 	"getDogComfortCooldownTimer" = func() -> float:
 		return 25 + randf() * 20,
 	"getDogComfortDeadline" = func() -> float:
-		return 18 + randf() * 7
+		return 10 + randf() * 7
 }
 
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://koadpcy2qhwu"]
+[gd_scene load_steps=10 format=3 uid="uid://koadpcy2qhwu"]
 
 [ext_resource type="Script" uid="uid://bua6nw7akb82v" path="res://scripts/bed.gd" id="1_pqek7"]
 [ext_resource type="Texture2D" uid="uid://coqcnmdd0cbj4" path="res://assets/frames/bed/bed_dog_asleep_1.PNG" id="2_ulp3u"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bgdbc3yhn1km5" path="res://assets/frames/bed/bed_dog_awake_1.PNG" id="5_la8lx"]
 [ext_resource type="Texture2D" uid="uid://dencb5rtlps1p" path="res://assets/frames/bed/bed_dog_awake_2.PNG" id="6_60r8n"]
 [ext_resource type="Texture2D" uid="uid://vcx6yf0g4pro" path="res://assets/frames/bed/bed_dog_awake_3.PNG" id="7_05mtd"]
+[ext_resource type="FontFile" uid="uid://dqs0oaj4yyi5i" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="8_ulp3u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u5sy4"]
 animations = [{
@@ -124,5 +125,16 @@ unique_name_in_owner = true
 wait_time = 100.0
 one_shot = true
 
+[node name="SleepButton" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 995.0
+offset_top = 621.0
+offset_right = 1342.0
+offset_bottom = 693.0
+theme_override_fonts/font = ExtResource("8_ulp3u")
+theme_override_font_sizes/font_size = 40
+text = "Go To Sleep.."
+
 [connection signal="timeout" from="DogComfortCooldownTimer" to="." method="_on_dog_comfort_cooldown_timer_timeout"]
 [connection signal="timeout" from="DogComfortDeadline" to="." method="_on_dog_comfort_deadline_timeout"]
+[connection signal="pressed" from="SleepButton" to="." method="_on_sleep_button_pressed"]

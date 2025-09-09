@@ -1,5 +1,9 @@
 ## Assets & Sources
+- Font from https://www.dafont.com/vcr-osd-mono.font
 - Laptop from https://pngtree.com/free-png-vectors/laptop
+- Laptop SFX from..
+	- https://www.myinstants.com/en/instant/correct-answer-gameshow/
+	- https://www.myinstants.com/en/instant/wrong-answer-gameshow/
 - Dog SFX from..
 	- https://pixabay.com/sound-effects/little-dog-snoring-23603/
 	- https://freesound.org/people/keweldog/sounds/181767/
