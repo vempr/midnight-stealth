@@ -1,20 +1,20 @@
 ## Assets & Sources
 - Laptop from https://pngtree.com/free-png-vectors/laptop
 - Dog SFX from..
--- https://pixabay.com/sound-effects/little-dog-snoring-23603/
--- https://freesound.org/people/keweldog/sounds/181767/
+	- https://pixabay.com/sound-effects/little-dog-snoring-23603/
+	- https://freesound.org/people/keweldog/sounds/181767/
 - Walking SFX from..
--- https://pixabay.com/sound-effects/footsteps-stairs-fast-90220/
--- https://pixabay.com/sound-effects/footsteps-in-old-house-26198/
--- https://pixabay.com/sound-effects/01-24-footsteps-rug-slippers-slow-pace-73912/
--- https://www.myinstants.com/en/instant/loud-footsteps-47200/
+	- https://pixabay.com/sound-effects/footsteps-stairs-fast-90220/
+	- https://pixabay.com/sound-effects/footsteps-in-old-house-26198/
+	- https://pixabay.com/sound-effects/01-24-footsteps-rug-slippers-slow-pace-73912/
+	- https://www.myinstants.com/en/instant/loud-footsteps-47200/
 - Door SFX from..
--- https://pixabay.com/sound-effects/door-closed-382707/
--- https://www.myinstants.com/en/instant/door-open-sound-effect-8564/
+	- https://pixabay.com/sound-effects/door-closed-382707/
+	- https://www.myinstants.com/en/instant/door-open-sound-effect-8564/
 - Jumpscare SFX from https://www.myinstants.com/en/instant/nightmare-fnaf-99968/
 - Background SFX from..
--- https://www.youtube.com/watch?v=1nD3Sp_saz4
--- https://www.youtube.com/watch?v=KF1eWXwP73U
+	- https://www.youtube.com/watch?v=1nD3Sp_saz4
+	- https://www.youtube.com/watch?v=KF1eWXwP73U
 - Assignment texts from..
--- https://en.wikipedia.org/wiki/Central_limit_theorem
--- https://en.wikipedia.org/wiki/Romeo_and_Juliet
+	- https://en.wikipedia.org/wiki/Central_limit_theorem
+	- https://en.wikipedia.org/wiki/Romeo_and_Juliet

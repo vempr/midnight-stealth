@@ -1,10 +1,13 @@
 extends Node2D
 
+var triggered_loss: bool = false
+
 
 func _ready() -> void:
 	%AmbienceHorror.play()
 	%DogSnore.volume_db = -30.0
 	%DogPant.volume_db = -15.0
+	%Boo.volume_db = -15.0
 	%DogSnore.play()
 
 
@@ -18,18 +21,24 @@ func _process(_delta: float) -> void:
 			%DogSnore.play()
 		%DogPant.stop()
 	
-	match Globals.lost_to:
-		Globals.Enemy.DAD:
-			# play running sound
-			await get_tree().create_timer(2.0).timeout
-			%Jumpscare.visible = true
+	if Globals.lost_to != Globals.Enemy.NOTHING && triggered_loss == false:
+		triggered_loss = true
+		var lost_to_dad: bool = Globals.lost_to == Globals.Enemy.DAD
+		
+		if lost_to_dad:
+			%FootstepsDadFast.play()
+		else:
+			%FootstepsMomFast.play()
+		await get_tree().create_timer(2.0).timeout
+		
+		%Jumpscare.visible = true
+		if lost_to_dad:
 			%DadJumpscare.visible = true
-			
-		Globals.Enemy.MOM:
-			# play running sound
-			await get_tree().create_timer(2.0).timeout
-			%Jumpscare.visible = true
+		else:
 			%MomJumpscare.visible = true
+				
+		get_tree().paused = true
+		%Boo.play(0.5)
 	
 	match Globals.place:
 		Globals.Place.TABLE:
