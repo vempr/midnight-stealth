@@ -17,37 +17,18 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Globals.dog_distressed == true:
-		%DogSnore.stop()
-		if %DogPant.playing == false:
-			%DogPant.play()
-	else:
-		if %DogSnore.playing == false:
-			%DogSnore.play()
-		%DogPant.stop()
+	if triggered_loss == false:
+		if Globals.dog_distressed == true:
+			%DogSnore.stop()
+			if %DogPant.playing == false:
+				%DogPant.play()
+		else:
+			if %DogSnore.playing == false:
+				%DogSnore.play()
+			%DogPant.stop()
 	
 	if Globals.lost_to != Globals.Enemy.NOTHING && triggered_loss == false:
 		triggered_loss = true
-		var lost_to_dad: bool = Globals.lost_to == Globals.Enemy.DAD
-		
-		if lost_to_dad:
-			%FootstepsDadFast.play()
-		else:
-			%FootstepsMomFast.play()
-		await get_tree().create_timer(2.0).timeout
-		
-		%Jumpscare.visible = true
-		if lost_to_dad:
-			%DadJumpscare.visible = true
-		else:
-			%MomJumpscare.visible = true
-		
-		%AmbienceHorror.stop()
-		%DogSnore.stop()
-		%DogPant.stop()
-		%Boo.play(0.5)
-		
-		await get_tree().create_timer(5.0).timeout
 		game_lost(Globals.lost_to)
 	
 	match Globals.place:
@@ -116,6 +97,30 @@ func _on_game_win() -> void:
 
 
 func game_lost(lost_to: Globals.Enemy) -> void:
+	if Globals.lost_to != Globals.Enemy.TIME:
+		var lost_to_dad: bool = Globals.lost_to == Globals.Enemy.DAD
+			
+		if lost_to_dad:
+			%FootstepsDadFast.play()
+		else:
+			%FootstepsMomFast.play()
+		await get_tree().create_timer(2.0).timeout
+		
+		%Jumpscare.visible = true
+		if lost_to_dad:
+			%DadJumpscare.visible = true
+		else:
+			%MomJumpscare.visible = true
+		
+		%AmbienceHorror.stop()
+		%DogSnore.stop()
+		%DogPant.stop()
+		%FootstepsDadFast.stop()
+		%FootstepsMomFast.stop()
+		%Boo.play(0.5)
+		
+		await get_tree().create_timer(5.0).timeout
+		
 	set_process(false)
 	%HUD.process_mode = Node.PROCESS_MODE_DISABLED
 	

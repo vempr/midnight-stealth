@@ -1,5 +1,8 @@
 extends Node2D
 
+var game_instance: Node = null
+
+
 func _ready() -> void:
 	%MainMenu.start_game.connect(_on_start_game)
 	%BlackBackground.modulate.a = 0.0
@@ -12,8 +15,8 @@ func _on_start_game() -> void:
 	
 	await tween_in.finished
 	
-	var actual_game_instance = preload("res://scenes/actual_game.tscn").instantiate()
-	add_child(actual_game_instance)
+	game_instance = preload("res://scenes/actual_game.tscn").instantiate()
+	add_child(game_instance)
 
 	%MainMenu.visible = false
 	var tween_out: Tween = create_tween()
@@ -21,4 +24,31 @@ func _on_start_game() -> void:
 	
 	await tween_out.finished
 	
+	%BlackBackgroundCL.visible = false
+	%ReplayButton.disabled = false
+
+
+func reset() -> void:
+	game_instance.queue_free()
+	
+	Globals.time = Globals.STARTING_TIME
+	Globals.place = Globals.STARTING_PLACE
+	Globals.door_closed = Globals.STARTING_DOOR_CLOSED
+	Globals.dog_distressed = Globals.STARTING_DOG_DISTRESSED
+	Globals.lost_to = Globals.STARTING_LOST_TO
+
+
+func _on_replay_button_pressed() -> void:
+	%ReplayButton.disabled = true
+	reset()
+	_on_start_game()
+
+
+func _on_main_menu_button_pressed() -> void:
+	reset()
+	$MainMenu.visible = true
+	
+	var tween: Tween = create_tween()
+	tween.tween_property(%BlackBackground, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
 	%BlackBackgroundCL.visible = false

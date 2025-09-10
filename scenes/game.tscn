@@ -77,16 +77,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -234.5
-offset_top = -25.0
-offset_right = 234.5
-offset_bottom = 50.0
+offset_left = -305.0
+offset_top = -43.0
+offset_right = 305.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_1kice")
 theme_override_font_sizes/font_size = 20
 text = "you lost to: dad
-tip: close your door when you hear his footsteps!"
+tips: - close your door when you hear his footsteps!
+- comfort doggy before timer runs out   "
 horizontal_alignment = 1
 
 [node name="LostToMomLabel" type="Label" parent="BlackBackgroundCL/BlackBackground"]
@@ -145,3 +146,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_1kice")
 text = "Main Menu"
+
+[connection signal="pressed" from="BlackBackgroundCL/BlackBackground/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="BlackBackgroundCL/BlackBackground/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

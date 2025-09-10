@@ -3,12 +3,18 @@ extends Node
 enum Place { TABLE, DOOR, BED, COMPUTER }
 enum Enemy { DAD, MOM, TIME, NOTHING }
 
-var clock_speed: int = 45
-var time: int = 0
-var place: Place = Place.TABLE
-var door_closed: bool = false
-var dog_distressed: bool = false
-var lost_to: Enemy = Enemy.NOTHING
+const CLOCK_SPEED: int = 45
+const STARTING_TIME: int = 0
+const STARTING_PLACE: Place = Place.TABLE
+const STARTING_DOOR_CLOSED: bool = false
+const STARTING_DOG_DISTRESSED: bool = false
+const STARTING_LOST_TO: Enemy = Enemy.NOTHING
+
+var time: int = STARTING_TIME
+var place: Place = STARTING_PLACE
+var door_closed: bool = STARTING_DOOR_CLOSED
+var dog_distressed: bool = STARTING_DOG_DISTRESSED
+var lost_to: Enemy = STARTING_LOST_TO
 
 var assignments_to_submit: int = 2
 var submitted_assignments: int = 0
