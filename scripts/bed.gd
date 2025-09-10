@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal game_win
+
 enum Letter { C, A, L, M }
 
 var TIMES_NEEDED = 5
@@ -89,3 +91,4 @@ func _on_computer_done() -> void:
 
 func _on_sleep_button_pressed() -> void:
 	print("game win!")
+	game_win.emit()

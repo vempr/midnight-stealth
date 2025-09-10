@@ -1,112 +1,46 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8d10lgs4m4nr"]
+[gd_scene load_steps=4 format=3 uid="uid://b8d10lgs4m4nr"]
 
 [ext_resource type="Script" uid="uid://b21inrm10ie7e" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://d2dulgpycwl2c" path="res://scenes/hud.tscn" id="2_ir15t"]
-[ext_resource type="PackedScene" uid="uid://cyfra7gbggvyf" path="res://scenes/computer.tscn" id="3_dinhu"]
-[ext_resource type="Texture2D" uid="uid://cnffswmoluptc" path="res://assets/frames/table/table_door_closed.PNG" id="5_p57ef"]
-[ext_resource type="Script" uid="uid://b7fh15nlnvsp7" path="res://scripts/table.gd" id="5_u5sy4"]
-[ext_resource type="Texture2D" uid="uid://dwvfl2drbfmo5" path="res://assets/frames/table/table_door_opened.PNG" id="6_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://c88olol1bcqww" path="res://scenes/door.tscn" id="7_trtic"]
-[ext_resource type="PackedScene" uid="uid://koadpcy2qhwu" path="res://scenes/bed.tscn" id="9_kvpfn"]
-[ext_resource type="AudioStream" uid="uid://qmwiuic8v21e" path="res://assets/sfx/footsteps_dad_fast.mp3" id="11_ca42v"]
-[ext_resource type="AudioStream" uid="uid://qhgwmcxod4yg" path="res://assets/sfx/ambience_horror.mp3" id="13_trtic"]
-[ext_resource type="AudioStream" uid="uid://3ibfw4lqy1ch" path="res://assets/sfx/ambience_clock.mp3" id="14_ir15t"]
-[ext_resource type="AudioStream" uid="uid://cfje741fmstt7" path="res://assets/sfx/dog_pant.mp3" id="15_ca42v"]
-[ext_resource type="AudioStream" uid="uid://dv3ex14y8f205" path="res://assets/sfx/dog_snore.mp3" id="15_ir15t"]
-[ext_resource type="AudioStream" uid="uid://b5hxccwtprhj1" path="res://assets/sfx/jumpscare.mp3" id="15_rysoc"]
-[ext_resource type="Texture2D" uid="uid://cj3f87h3xuo6i" path="res://assets/frames/jumpscare/dad.PNG" id="16_ca42v"]
-[ext_resource type="Texture2D" uid="uid://k85goggo50ob" path="res://assets/frames/jumpscare/mom.PNG" id="17_rysoc"]
-[ext_resource type="AudioStream" uid="uid://4rjvrx4yjcd" path="res://assets/sfx/footsteps_dad_slow.mp3" id="17_ssvqc"]
-[ext_resource type="AudioStream" uid="uid://beh2e3r05ri2w" path="res://assets/sfx/footsteps_mom_slow.mp3" id="18_ssvqc"]
-[ext_resource type="AudioStream" uid="uid://b24ghtu3xg67c" path="res://assets/sfx/footsteps_mom_fast.mp3" id="19_264po"]
+[ext_resource type="FontFile" uid="uid://dqs0oaj4yyi5i" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="2_1kice"]
+[ext_resource type="PackedScene" uid="uid://d8ttqv236fbw" path="res://scenes/main_menu.tscn" id="2_5newe"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
 
-[node name="HUD" parent="." instance=ExtResource("2_ir15t")]
-layer = 2
-
-[node name="Computer" parent="." instance=ExtResource("3_dinhu")]
+[node name="MainMenu" parent="." instance=ExtResource("2_5newe")]
 unique_name_in_owner = true
+layer = 3
 
-[node name="Table" type="CanvasLayer" parent="."]
+[node name="BlackBackgroundCL" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-script = ExtResource("5_u5sy4")
-
-[node name="TableDoorClosed" type="Sprite2D" parent="Table"]
-unique_name_in_owner = true
-visible = false
-position = Vector2(960, 540)
-texture = ExtResource("5_p57ef")
-
-[node name="TableDoorOpen" type="Sprite2D" parent="Table"]
-z_index = -1
-position = Vector2(960, 540)
-texture = ExtResource("6_u5sy4")
-
-[node name="Door" parent="." instance=ExtResource("7_trtic")]
-unique_name_in_owner = true
-
-[node name="Bed" parent="." instance=ExtResource("9_kvpfn")]
-unique_name_in_owner = true
+layer = 3
 visible = false
 
-[node name="Jumpscare" type="CanvasLayer" parent="."]
+[node name="BlackBackground" type="ColorRect" parent="BlackBackgroundCL"]
 unique_name_in_owner = true
-layer = 10
-visible = false
+z_index = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
-[node name="DadJumpscare" type="Sprite2D" parent="Jumpscare"]
-unique_name_in_owner = true
-visible = false
-position = Vector2(960, 540)
-texture = ExtResource("16_ca42v")
-
-[node name="MomJumpscare" type="Sprite2D" parent="Jumpscare"]
+[node name="WinLabel" type="Label" parent="BlackBackgroundCL/BlackBackground"]
 unique_name_in_owner = true
 visible = false
-position = Vector2(960, 540)
-texture = ExtResource("17_rysoc")
-
-[node name="Audios" type="Node" parent="."]
-
-[node name="FootstepsMomSlow" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("18_ssvqc")
-
-[node name="FootstepsDadFast" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("11_ca42v")
-volume_db = -15.0
-
-[node name="AmbienceHorror" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("13_trtic")
-volume_db = -5.0
-
-[node name="AmbienceClock" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("14_ir15t")
-
-[node name="DogPant" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("15_ca42v")
-
-[node name="DogSnore" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("15_ir15t")
-
-[node name="Boo" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-process_mode = 3
-stream = ExtResource("15_rysoc")
-volume_db = -20.0
-
-[node name="FootstepsDadSlow" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("17_ssvqc")
-
-[node name="FootstepsMomFast" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("19_264po")
-volume_db = -18.0
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -37.5
+offset_right = 157.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1kice")
+text = "zzz... you survived the night!!
+thanks for playing ❤️
+❤️ built for siege (hack club) hackathon ❤️"
+horizontal_alignment = 1

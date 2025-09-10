@@ -81,6 +81,7 @@ offset_left = 627.0
 offset_top = 37.0
 offset_right = 1324.0
 offset_bottom = 853.0
+theme_override_constants/line_spacing = 1
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_om4aa")
 placeholder_text = "TOPIC: Central limit theorem
@@ -97,6 +98,7 @@ offset_left = 627.0
 offset_top = 37.0
 offset_right = 1324.0
 offset_bottom = 853.0
+theme_override_constants/line_spacing = 1
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ikar")
 theme_override_styles/focus = SubResource("StyleBoxFlat_uiul0")
@@ -117,6 +119,7 @@ text = "Submit Math Homework"
 [node name="MathGradePrefix" type="Label" parent="TabContainer/math_assignment_txt"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 1185.0
 offset_top = 804.0
 offset_right = 1292.0
@@ -126,6 +129,7 @@ text = "Grade:"
 [node name="MathGrade" type="Label" parent="TabContainer/math_assignment_txt"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 1240.0
 offset_top = 804.0
 offset_right = 1281.0
@@ -180,6 +184,7 @@ text = "Submit English Homework"
 [node name="EnglishGradePrefix" type="Label" parent="TabContainer/english_assignment_txt"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 1185.0
 offset_top = 804.0
 offset_right = 1292.0
@@ -189,6 +194,7 @@ text = "Grade:"
 [node name="EnglishGrade" type="Label" parent="TabContainer/english_assignment_txt"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 0
 offset_left = 1240.0
 offset_top = 804.0
 offset_right = 1281.0

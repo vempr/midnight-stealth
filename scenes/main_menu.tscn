@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://d8ttqv236fbw"]
+
+[ext_resource type="Script" uid="uid://bblnhed3rd2vx" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://f81ro4jxa7yl" path="res://assets/readme/doggie.jpg" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://dqs0oaj4yyi5i" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_l6cm7"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_bqqt6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Doggie" type="Sprite2D" parent="ColorRect"]
+position = Vector2(995, 504)
+scale = Vector2(0.430208, 0.363889)
+texture = ExtResource("1_ekxnf")
+
+[node name="Title" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -177.0
+offset_right = 234.5
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 50
+text = "midnight-stealth"
+
+[node name="Description" type="Label" parent="."]
+offset_left = 807.0
+offset_top = 425.0
+offset_right = 1113.0
+offset_bottom = 605.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+text = "MS is a fnaf-esque game where you have to finish your assignments in the middle of the night - but be careful... your parents might be awake and see that you aren't sleeping.."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Me" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 1059.0
+offset_right = 315.0
+offset_bottom = 1239.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+text = "@vempr"
+autowrap_mode = 2
+
+[node name="PlayButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 28.0
+offset_right = 76.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_l6cm7")
+text = "Play!"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
