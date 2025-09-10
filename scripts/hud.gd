@@ -8,6 +8,16 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if Globals.time != 0:
+		%Time.text = str(Globals.time) + "AM"
+			
+	if Globals.submitted_assignments == Globals.assignments_to_submit:
+		%AssignmentsLeft.visible = false
+		%AssignmentsDone.text = str(Globals.assignments_to_submit) + "/" + str(Globals.assignments_to_submit)
+		%AssignmentsDone.visible = true
+	else:
+		%AssignmentsLeft.text = str(Globals.submitted_assignments) + "/" + str(Globals.assignments_to_submit)
+	
 	match Globals.place:
 		Globals.Place.TABLE:
 			%RightPanelArea.visible = true

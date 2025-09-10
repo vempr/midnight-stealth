@@ -23,6 +23,11 @@
 [node name="ActualGame" type="Node2D"]
 script = ExtResource("1_sin48")
 
+[node name="Clock" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 45.0
+autostart = true
+
 [node name="HUD" parent="." instance=ExtResource("1_et30f")]
 unique_name_in_owner = true
 layer = 2
@@ -55,7 +60,7 @@ visible = false
 
 [node name="Jumpscare" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-layer = 10
+layer = 3
 visible = false
 
 [node name="DadJumpscare" type="Sprite2D" parent="Jumpscare"]
@@ -85,11 +90,12 @@ volume_db = -15.0
 [node name="AmbienceHorror" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 stream = ExtResource("12_spiit")
-volume_db = -5.0
+volume_db = -7.0
 
 [node name="AmbienceClock" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 stream = ExtResource("13_o5qd2")
+volume_db = -20.0
 
 [node name="DogPant" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
@@ -113,3 +119,5 @@ stream = ExtResource("17_5wfq3")
 unique_name_in_owner = true
 stream = ExtResource("18_bsq64")
 volume_db = -18.0
+
+[connection signal="timeout" from="Clock" to="." method="_on_clock_timeout"]

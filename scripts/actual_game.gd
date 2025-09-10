@@ -12,7 +12,7 @@ func _ready() -> void:
 	%AmbienceHorror.play()
 	%DogSnore.volume_db = -30.0
 	%DogPant.volume_db = -15.0
-	%Boo.volume_db = -15.0
+	%Boo.volume_db = -25.0
 	%DogSnore.play()
 
 
@@ -41,9 +41,14 @@ func _process(_delta: float) -> void:
 			%DadJumpscare.visible = true
 		else:
 			%MomJumpscare.visible = true
-				
-		get_tree().paused = true
+		
+		%AmbienceHorror.stop()
+		%DogSnore.stop()
+		%DogPant.stop()
 		%Boo.play(0.5)
+		
+		await get_tree().create_timer(5.0).timeout
+		game_lost(Globals.lost_to)
 	
 	match Globals.place:
 		Globals.Place.TABLE:
@@ -93,6 +98,8 @@ func _on_game_win() -> void:
 	
 	black_background_canvas_layer.visible = true
 	win_label.visible = true
+	$"../BlackBackgroundCL/BlackBackground/ReplayButton".visible = true
+	$"../BlackBackgroundCL/BlackBackground/MainMenuButton".visible = true
 	
 	var tween: Tween = create_tween()
 	tween.tween_property(black_background, "modulate:a", 1.0, 3.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
@@ -106,6 +113,46 @@ func _on_game_win() -> void:
 	for child in %Audios.get_children():
 		if child is AudioStreamPlayer:
 			child.queue_free()
+
+
+func game_lost(lost_to: Globals.Enemy) -> void:
+	set_process(false)
+	%HUD.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	var black_background_canvas_layer = $"../BlackBackgroundCL"
+	var black_background = $"../BlackBackgroundCL/BlackBackground"
 	
+	match lost_to:
+		Globals.Enemy.TIME:
+			$"../BlackBackgroundCL/BlackBackground/LostToTimeLabel".visible = true
+		Globals.Enemy.MOM:
+			$"../BlackBackgroundCL/BlackBackground/LostToMomLabel".visible = true
+		Globals.Enemy.DAD:
+			$"../BlackBackgroundCL/BlackBackground/LostToDadLabel".visible = true
 	
+	black_background_canvas_layer.visible = true
+	$"../BlackBackgroundCL/BlackBackground/ReplayButton".visible = true
+	$"../BlackBackgroundCL/BlackBackground/MainMenuButton".visible = true
+	
+	var tween: Tween = create_tween()
+	tween.tween_property(black_background, "modulate:a", 1.0, 3.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	
+	for child in %Audios.get_children():
+		if child is AudioStreamPlayer:
+			tween.parallel().tween_property(child, "volume_db", -80.0, 3.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			
+	await tween.finished
+	
+	for child in %Audios.get_children():
+		if child is AudioStreamPlayer:
+			child.queue_free()
+
+
+func _on_clock_timeout() -> void:
+	Globals.time += 1
+	if Globals.time == 6:
+		game_lost(Globals.Enemy.TIME)
+	elif Globals.time % 2 == 0:
+		%AmbienceClock.play()
+	
+	%Clock.start(Globals.clock_speed)

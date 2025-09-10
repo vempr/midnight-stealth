@@ -9,11 +9,11 @@ script = ExtResource("1_uwrxv")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_5newe")]
 unique_name_in_owner = true
-layer = 3
+layer = 4
 
 [node name="BlackBackgroundCL" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-layer = 3
+layer = 4
 visible = false
 
 [node name="BlackBackground" type="ColorRect" parent="BlackBackgroundCL"]
@@ -44,3 +44,104 @@ text = "zzz... you survived the night!!
 thanks for playing ❤️
 ❤️ built for siege (hack club) hackathon ❤️"
 horizontal_alignment = 1
+
+[node name="LostToTimeLabel" type="Label" parent="BlackBackgroundCL/BlackBackground"]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -25.0
+offset_right = 234.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1kice")
+theme_override_font_sizes/font_size = 20
+text = "you lost to: time
+tip: finish your assignments before 6am!"
+horizontal_alignment = 1
+
+[node name="LostToDadLabel" type="Label" parent="BlackBackgroundCL/BlackBackground"]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -25.0
+offset_right = 234.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1kice")
+theme_override_font_sizes/font_size = 20
+text = "you lost to: dad
+tip: close your door when you hear his footsteps!"
+horizontal_alignment = 1
+
+[node name="LostToMomLabel" type="Label" parent="BlackBackgroundCL/BlackBackground"]
+unique_name_in_owner = true
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -25.0
+offset_right = 234.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1kice")
+theme_override_font_sizes/font_size = 20
+text = "you lost to: mom
+tip: open your door when you hear her footsteps!"
+horizontal_alignment = 1
+
+[node name="ReplayButton" type="Button" parent="BlackBackgroundCL/BlackBackground"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 30.0
+offset_right = 136.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1kice")
+text = "Play Again"
+
+[node name="MainMenuButton" type="Button" parent="BlackBackgroundCL/BlackBackground"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = 30.0
+offset_right = -4.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_1kice")
+text = "Main Menu"
