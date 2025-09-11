@@ -32,6 +32,7 @@ func reset() -> void:
 	game_instance.queue_free()
 	Globals.functions["reset_game_state"].call()
 
+
 func _on_replay_button_pressed() -> void:
 	%ReplayButton.disabled = true
 	reset()

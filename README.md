@@ -1,7 +1,9 @@
 # midnight-stealth
 is a game about you trying to finish your due assignments at night while your
-crazy parents are walking around the house. This is a FNAF + typing game,
-so I'm sorry if your hands aren't fast enough for MS. Made in Godot :)
+crazy parents are walking around the house. This is a *FNAF-esque + typing* game,
+so I do apologize if your hands aren't fast enough for Midnight Stealth. Made in *Godot* for *Siege Hackathon* :)
+
+![](https://github.com/vempr/pebblevs/blob/a74bc735010a71450243d90263a276c8ac21b6cb/assets/readme/week-1.jpg)
 
 ## How to beat MS
 
@@ -12,15 +14,17 @@ The objective is to know what to do for each enemy (spoilers):
 - For MOM, you must open the door and shut down your laptop before she reaches your room
 - You also can't keep your door closed because you will run out of oxygen
 
+-> One game hour corresponds to one minute, so you have 6 minutes to type out your assignments
+
 ## Installation
 
-To play online, just visit .
+To play online, just visit https://vempr.itch.io/midnight-stealth.
 
-### For a local install:
+### For a local installation:
 
 1. Clone the repository:
 
-`git clone https://www.github.com/vempr/pebblevs`
+`git clone https://www.github.com/vempr/midnight-stealth`
 
 2. Import the folder in Godot Game Engine
 
@@ -38,7 +42,7 @@ To play online, just visit .
 	- dad & oxygen are one threat
 	- mom stays the same, but laptop has to be turnt off when she is looking during middle phase (5s door has to be open)
 
-´end of notes´
+`end of notes`
 
 ## Assets & Sources
 - Font from https://www.dafont.com/vcr-osd-mono.font
