@@ -3,7 +3,7 @@ is a game about you trying to finish your due assignments at night while your
 crazy parents are walking around the house. This is a *FNAF-esque + typing* game,
 so I do apologize if your hands aren't fast enough for Midnight Stealth. Made in *Godot* for *Siege Hackathon* :)
 
-![](https://github.com/vempr/pebblevs/blob/a74bc735010a71450243d90263a276c8ac21b6cb/assets/readme/week-1.jpg)
+![](https://github.com/vempr/midnight-stealth/blob/dd002d472cfec3be2e5436f5fca91c7575394f1a/assets/readme/week-2.jpg)
 
 ## How to beat MS
 
