@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvpj6nx1wpaoh"]
+
+[ext_resource type="Script" uid="uid://b7fh15nlnvsp7" path="res://scripts/table.gd" id="1_olh0b"]
+[ext_resource type="Texture2D" uid="uid://dwvfl2drbfmo5" path="res://assets/frames/table/table_door_opened.PNG" id="2_u03e6"]
+[ext_resource type="Texture2D" uid="uid://cnffswmoluptc" path="res://assets/frames/table/table_door_closed.PNG" id="3_2f5gb"]
+[ext_resource type="Texture2D" uid="uid://bnplbokjgkmqb" path="res://assets/frames/table/table_door_opened_laptop_closed.PNG" id="3_ov7a8"]
+[ext_resource type="Texture2D" uid="uid://bp06r1tvlxhx2" path="res://assets/frames/table/table_door_closed_laptop_closed.PNG" id="4_ov7a8"]
+[ext_resource type="AudioStream" uid="uid://djoje6c1cs6yy" path="res://assets/sfx/laptop_power_on.mp3" id="5_u03e6"]
+[ext_resource type="AudioStream" uid="uid://cr6kf5ns8otme" path="res://assets/sfx/laptop_power_off.mp3" id="6_2f5gb"]
+
+[node name="Table" type="CanvasLayer"]
+script = ExtResource("1_olh0b")
+
+[node name="TableDoorOpenLaptopOpen" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("2_u03e6")
+
+[node name="TableDoorOpenLaptopClosed" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("3_ov7a8")
+
+[node name="TableDoorClosedLaptopOpen" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("3_2f5gb")
+
+[node name="TableDoorClosedLaptopClosed" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("4_ov7a8")
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="LaptopPowerOn" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("5_u03e6")
+volume_db = -40.0
+
+[node name="LaptopPowerOff" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("6_2f5gb")
+volume_db = -40.0

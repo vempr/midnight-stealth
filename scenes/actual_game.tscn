@@ -1,11 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://daryp1rqgc8jo"]
+[gd_scene load_steps=18 format=3 uid="uid://daryp1rqgc8jo"]
 
 [ext_resource type="PackedScene" uid="uid://d2dulgpycwl2c" path="res://scenes/hud.tscn" id="1_et30f"]
 [ext_resource type="Script" uid="uid://dh2ikluhkfu4j" path="res://scripts/actual_game.gd" id="1_sin48"]
 [ext_resource type="PackedScene" uid="uid://cyfra7gbggvyf" path="res://scenes/computer.tscn" id="2_sin48"]
-[ext_resource type="Script" uid="uid://b7fh15nlnvsp7" path="res://scripts/table.gd" id="3_g6crv"]
-[ext_resource type="Texture2D" uid="uid://cnffswmoluptc" path="res://assets/frames/table/table_door_closed.PNG" id="4_swfy8"]
-[ext_resource type="Texture2D" uid="uid://dwvfl2drbfmo5" path="res://assets/frames/table/table_door_opened.PNG" id="5_bbbum"]
+[ext_resource type="PackedScene" uid="uid://bvpj6nx1wpaoh" path="res://scenes/table.tscn" id="4_ng2b7"]
 [ext_resource type="PackedScene" uid="uid://c88olol1bcqww" path="res://scenes/door.tscn" id="6_hyu6x"]
 [ext_resource type="PackedScene" uid="uid://koadpcy2qhwu" path="res://scenes/bed.tscn" id="7_5442k"]
 [ext_resource type="Texture2D" uid="uid://cj3f87h3xuo6i" path="res://assets/frames/jumpscare/dad.PNG" id="8_y3qf4"]
@@ -24,6 +22,7 @@
 script = ExtResource("1_sin48")
 
 [node name="Timers" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="Clock" type="Timer" parent="Timers"]
 unique_name_in_owner = true
@@ -49,10 +48,12 @@ unique_name_in_owner = true
 [node name="MomReactionTime" type="Timer" parent="Timers"]
 unique_name_in_owner = true
 wait_time = 2.0
+one_shot = true
 
 [node name="MomWaitTime" type="Timer" parent="Timers"]
 unique_name_in_owner = true
 wait_time = 5.0
+one_shot = true
 
 [node name="HUD" parent="." instance=ExtResource("1_et30f")]
 unique_name_in_owner = true
@@ -62,20 +63,8 @@ layer = 2
 unique_name_in_owner = true
 visible = false
 
-[node name="Table" type="CanvasLayer" parent="."]
+[node name="Table" parent="." instance=ExtResource("4_ng2b7")]
 unique_name_in_owner = true
-script = ExtResource("3_g6crv")
-
-[node name="TableDoorClosed" type="Sprite2D" parent="Table"]
-unique_name_in_owner = true
-visible = false
-position = Vector2(960, 540)
-texture = ExtResource("4_swfy8")
-
-[node name="TableDoorOpen" type="Sprite2D" parent="Table"]
-z_index = -1
-position = Vector2(960, 540)
-texture = ExtResource("5_bbbum")
 
 [node name="Door" parent="." instance=ExtResource("6_hyu6x")]
 unique_name_in_owner = true
@@ -122,21 +111,30 @@ stream = ExtResource("14_erjbb")
 unique_name_in_owner = true
 stream = ExtResource("15_6jmbe")
 
-[node name="Boo" type="AudioStreamPlayer" parent="Audios"]
+[node name="BooDad" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("16_0q07s")
-volume_db = -20.0
+volume_db = -30.0
+
+[node name="BooMom" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("16_0q07s")
+volume_db = -30.0
+pitch_scale = 1.1
 
 [node name="FootstepsDadSlow" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 stream = ExtResource("17_5wfq3")
 volume_db = -30.0
+pitch_scale = 0.9
 
 [node name="FootstepsMomSlow" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 stream = ExtResource("10_t8htw")
-volume_db = -20.0
+volume_db = -30.0
+pitch_scale = 1.2
 
 [node name="FootstepsDadFast" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true

@@ -13,7 +13,7 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="Doggie" type="Sprite2D" parent="ColorRect"]
-position = Vector2(995, 504)
+position = Vector2(995, 484)
 scale = Vector2(0.430208, 0.363889)
 texture = ExtResource("1_ekxnf")
 
@@ -25,9 +25,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -234.5
-offset_top = -177.0
+offset_top = -207.0
 offset_right = 234.5
-offset_bottom = -133.0
+offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_l6cm7")
@@ -36,11 +36,25 @@ text = "midnight-stealth"
 
 [node name="Description" type="Label" parent="."]
 offset_left = 807.0
-offset_top = 425.0
+offset_top = 405.0
 offset_right = 1113.0
-offset_bottom = 605.0
+offset_bottom = 585.0
 theme_override_fonts/font = ExtResource("1_l6cm7")
 text = "MS is a fnaf-esque game where you have to finish your assignments in the middle of the night - but be careful... your parents might be awake and see that you aren't sleeping.."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Tips" type="Label" parent="."]
+offset_left = 762.0
+offset_top = 720.0
+offset_right = 1136.0
+offset_bottom = 900.0
+pivot_offset = Vector2(-140, -264)
+theme_override_colors/font_color = Color(1, 1, 1, 0.666667)
+theme_override_fonts/font = ExtResource("1_l6cm7")
+text = " tips:
+- press E to interact with scenes
+ - imposibble to beat without sound"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -60,12 +74,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -76.0
-offset_top = 28.0
+offset_top = -4.0
 offset_right = 76.0
-offset_bottom = 59.0
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 25
 text = "Play!"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -1,12 +1,14 @@
 extends CanvasLayer
 
 signal game_win
+signal failed_to_comfort_dog
 
 enum Letter { C, A, L, M }
 
 var TIMES_NEEDED = 5
 var times_written_calm = 0
 var next_letter: Letter = Letter.C
+var game_lost: bool = false
 
 
 func _ready() -> void: 
@@ -81,8 +83,9 @@ func _on_dog_comfort_cooldown_timer_timeout() -> void:
 
 
 func _on_dog_comfort_deadline_timeout() -> void:
-	if Globals.dog_distressed == true:
-		Globals.lost_to = Globals.Enemy.DAD
+	if Globals.dog_distressed == true && game_lost == false:
+		game_lost = true
+		failed_to_comfort_dog.emit()
 
 
 func _on_computer_done() -> void:
@@ -90,5 +93,5 @@ func _on_computer_done() -> void:
 
 
 func _on_sleep_button_pressed() -> void:
-	print("game win!")
+	Globals.game_won = true
 	game_win.emit()

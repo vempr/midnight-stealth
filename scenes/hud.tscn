@@ -40,7 +40,7 @@ size = Vector2(120, 1006)
 size = Vector2(1008, 111)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.427451)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -118,6 +118,7 @@ offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.13322, 0.542878)
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
 theme_override_constants/line_spacing = -27
 theme_override_font_sizes/font_size = 25
 text = "v
@@ -155,6 +156,7 @@ offset_right = 28.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
 theme_override_font_sizes/font_size = 25
 text = "<<"
 
@@ -189,6 +191,7 @@ offset_right = 28.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
 theme_override_font_sizes/font_size = 25
 text = ">>"
 
@@ -223,6 +226,7 @@ offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.13322, 0.542878)
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
 theme_override_constants/line_spacing = -25
 theme_override_font_sizes/font_size = 25
 text = "^
@@ -253,7 +257,7 @@ offset_bottom = 54.0
 theme_override_styles/background = SubResource("StyleBoxFlat_oo0fn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5ysmq")
 max_value = 1.0
-value = 1.0
+value = 0.8
 show_percentage = false
 
 [node name="Label" type="Label" parent="OxygenBar"]

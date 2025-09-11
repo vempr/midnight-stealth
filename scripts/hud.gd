@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal suffocated
 
-const DEPLETE_RATE: float = 1.0 / 60.0
+const DEPLETE_RATE: float = 1.0 / 40.0
 const REFILL_RATE: float = 1.0 / 30.0
 
 var oxygen: float = 1.0
@@ -28,9 +28,12 @@ func _process(delta: float) -> void:
 	match Globals.place:
 		Globals.Place.TABLE:
 			%RightPanelArea.visible = true
-			%BottomPanelArea.visible = true
 			%LeftPanelArea.visible = false
 			%BottomPanelAreaDown.visible = false
+			if Globals.laptop_closed == false:
+				%BottomPanelArea.visible = true
+			else:
+				%BottomPanelArea.visible = false
 			
 		Globals.Place.DOOR:
 			%RightPanelArea.visible = true
@@ -69,7 +72,7 @@ func _on_bottom_panel_area_down_mouse_entered() -> void:
 	if can_switch:
 		Globals.place = Globals.Place.TABLE
 		can_switch = false
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.1).timeout
 		can_switch = true
 
 

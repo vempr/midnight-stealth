@@ -1,3 +1,31 @@
+# midnight-stealth
+is a game about you trying to finish your due assignments at night while your
+crazy parents are walking around the house. This is a FNAF + typing game,
+so I'm sorry if your hands aren't fast enough for MS. Made in Godot :)
+
+## How to beat MS
+
+Your parents are walking around the house and pass through your room.
+The objective is to know what to do for each enemy (spoilers):
+- For DAD, you must close the door before he reaches your room
+	- Also, if you fail to complete the DOG minigame, he will also kill you
+- For MOM, you must open the door and shut down your laptop before she reaches your room
+- You also can't keep your door closed because you will run out of oxygen
+
+## Installation
+
+To play online, just visit .
+
+### For a local install:
+
+1. Clone the repository:
+
+`git clone https://www.github.com/vempr/pebblevs`
+
+2. Import the folder in Godot Game Engine
+
+3. Done!
+
 ## Brainstorming (my personal workspace to write out ideas to execute)
 ### Dad/Mom AI
 - fundament: dad enemy occurs more than mom enemy
@@ -10,12 +38,16 @@
 	- dad & oxygen are one threat
 	- mom stays the same, but laptop has to be turnt off when she is looking during middle phase (5s door has to be open)
 
+´end of notes´
+
 ## Assets & Sources
 - Font from https://www.dafont.com/vcr-osd-mono.font
 - Laptop from https://pngtree.com/free-png-vectors/laptop
 - Laptop SFX from..
 	- https://www.myinstants.com/en/instant/correct-answer-gameshow/
 	- https://www.myinstants.com/en/instant/wrong-answer-gameshow/
+	- https://www.myinstants.com/en/instant/windows-xp-shutdown/
+	- https://www.myinstants.com/en/instant/windows-xp-startup-sound-58970/
 - Dog SFX from..
 	- https://pixabay.com/sound-effects/little-dog-snoring-23603/
 	- https://freesound.org/people/keweldog/sounds/181767/

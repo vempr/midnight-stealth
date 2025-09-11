@@ -9,14 +9,16 @@ const RED: Color = Color(1.0, 0.199, 0.166)
 var math_percentage: float = 0.0
 var english_percentage: float = 0.0
 var in_grading_process: bool = false
+var submitted_all: bool = false
 
 @onready var math_template_text: String = %MathTextTemplate.placeholder_text
 @onready var english_template_text: String = %EnglishTextTemplate.placeholder_text
 
 
 func _process(_delta: float) -> void:
-	if Globals.submitted_assignments == Globals.assignments_to_submit:
+	if Globals.submitted_assignments == Globals.assignments_to_submit && submitted_all == false:
 		computer_done.emit()
+		submitted_all = true
 
 
 func compare_two_texts(a: String, b: String) -> float:
@@ -49,6 +51,7 @@ func _on_math_submit_button_pressed() -> void:
 
 	%MathGradePrefix.visible = true
 	%MathGrade.visible = true
+
 
 func _on_english_submit_button_pressed() -> void:
 	in_grading_process = true

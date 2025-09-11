@@ -30,13 +30,7 @@ func _on_start_game() -> void:
 
 func reset() -> void:
 	game_instance.queue_free()
-	
-	Globals.time = Globals.STARTING_TIME
-	Globals.place = Globals.STARTING_PLACE
-	Globals.door_closed = Globals.STARTING_DOOR_CLOSED
-	Globals.dog_distressed = Globals.STARTING_DOG_DISTRESSED
-	Globals.lost_to = Globals.STARTING_LOST_TO
-
+	Globals.functions["reset_game_state"].call()
 
 func _on_replay_button_pressed() -> void:
 	%ReplayButton.disabled = true
@@ -52,3 +46,11 @@ func _on_main_menu_button_pressed() -> void:
 	tween.tween_property(%BlackBackground, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	await tween.finished
 	%BlackBackgroundCL.visible = false
+	
+	%WinLabel.visible = false
+	%LostToTimeLabel.visible = false
+	%LostToDadLabel.visible = false
+	%LostToMomLabel.visible = false
+	%LostToOxygenLabel.visible = false
+	%ReplayButton.visible = false
+	%MainMenuButton.visible = false
