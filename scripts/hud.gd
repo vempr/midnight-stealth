@@ -1,13 +1,20 @@
 extends CanvasLayer
 
-var can_switch := true
+signal suffocated
+
+const DEPLETE_RATE: float = 1.0 / 60.0
+const REFILL_RATE: float = 1.0 / 30.0
+
+var oxygen: float = 1.0
+var can_switch: bool = true
+var has_suffocated: bool = false
 
 
 func _ready() -> void:
 	%Computer.computer_done.connect(_on_computer_done)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if Globals.time != 0:
 		%Time.text = str(Globals.time) + "AM"
 			
@@ -42,7 +49,20 @@ func _process(_delta: float) -> void:
 			%BottomPanelArea.visible = false
 			%LeftPanelArea.visible = false
 			%BottomPanelAreaDown.visible = true
-		
+	
+	if Globals.door_closed == true:
+		oxygen -= DEPLETE_RATE * delta
+		if oxygen <= 0.0 && has_suffocated == false:
+			has_suffocated = true
+			oxygen = 0.0
+			suffocated.emit()
+	else:
+		oxygen += REFILL_RATE * delta
+		if oxygen >= 1.0:
+			oxygen = 1.0
+	
+	%OxygenBar.value = oxygen
+	
 
 
 func _on_bottom_panel_area_down_mouse_entered() -> void:

@@ -2,21 +2,30 @@ extends Node2D
 
 var triggered_loss: bool = false
 var game_win: bool = false
+var dad_danger_zone: bool = false
+var mom_danger_zone: bool = false
 
 
 func _ready() -> void:
 	%HUD.process_mode = Node.PROCESS_MODE_INHERIT
 	set_process(true)
 	%Bed.game_win.connect(_on_game_win)
+	%HUD.suffocated.connect(_on_suffocated)
 	
 	%AmbienceHorror.play()
 	%DogSnore.volume_db = -30.0
 	%DogPant.volume_db = -15.0
 	%Boo.volume_db = -25.0
 	%DogSnore.play()
+	
+	%DadCooldown.start(Globals.functions["getDadCooldown"].call())
+	%MomCooldown.start(Globals.functions["getMomCooldown"].call())
 
 
 func _process(_delta: float) -> void:
+	if Globals.door_closed == false && dad_danger_zone == true && triggered_loss == false:
+		game_lost(Globals.Enemy.DAD)
+	
 	if triggered_loss == false:
 		if Globals.dog_distressed == true:
 			%DogSnore.stop()
@@ -28,7 +37,6 @@ func _process(_delta: float) -> void:
 			%DogPant.stop()
 	
 	if Globals.lost_to != Globals.Enemy.NOTHING && triggered_loss == false:
-		triggered_loss = true
 		game_lost(Globals.lost_to)
 	
 	match Globals.place:
@@ -97,28 +105,35 @@ func _on_game_win() -> void:
 
 
 func game_lost(lost_to: Globals.Enemy) -> void:
-	if Globals.lost_to != Globals.Enemy.TIME:
-		var lost_to_dad: bool = Globals.lost_to == Globals.Enemy.DAD
-			
-		if lost_to_dad:
-			%FootstepsDadFast.play()
-		else:
-			%FootstepsMomFast.play()
-		await get_tree().create_timer(2.0).timeout
-		
-		%Jumpscare.visible = true
-		if lost_to_dad:
+	triggered_loss = true
+	
+	match lost_to:
+		Globals.Enemy.DAD:
 			%DadJumpscare.visible = true
-		else:
+			$"../BlackBackgroundCL/BlackBackground/LostToDadLabel".visible = true
+		Globals.Enemy.MOM:
 			%MomJumpscare.visible = true
+			$"../BlackBackgroundCL/BlackBackground/LostToMomLabel".visible = true
+			%FootstepsMomFast.play()
+			await get_tree().create_timer(2.0).timeout
+		Globals.Enemy.TIME:
+			%DadJumpscare.visible = true
+			$"../BlackBackgroundCL/BlackBackground/LostToTimeLabel".visible = true
+			%FootstepsDadFast.play()
+			await get_tree().create_timer(2.0).timeout
+		Globals.Enemy.OXYGEN:
+			$"../BlackBackgroundCL/BlackBackground/LostToOxygenLabel".visible = true
 		
+	if lost_to != Globals.Enemy.OXYGEN:
 		%AmbienceHorror.stop()
 		%DogSnore.stop()
 		%DogPant.stop()
+		%FootstepsDadSlow.stop()
+		%FootstepsMomSlow.stop()
 		%FootstepsDadFast.stop()
 		%FootstepsMomFast.stop()
 		%Boo.play(0.5)
-		
+		%Jumpscare.visible = true
 		await get_tree().create_timer(5.0).timeout
 		
 	set_process(false)
@@ -126,14 +141,6 @@ func game_lost(lost_to: Globals.Enemy) -> void:
 	
 	var black_background_canvas_layer = $"../BlackBackgroundCL"
 	var black_background = $"../BlackBackgroundCL/BlackBackground"
-	
-	match lost_to:
-		Globals.Enemy.TIME:
-			$"../BlackBackgroundCL/BlackBackground/LostToTimeLabel".visible = true
-		Globals.Enemy.MOM:
-			$"../BlackBackgroundCL/BlackBackground/LostToMomLabel".visible = true
-		Globals.Enemy.DAD:
-			$"../BlackBackgroundCL/BlackBackground/LostToDadLabel".visible = true
 	
 	black_background_canvas_layer.visible = true
 	$"../BlackBackgroundCL/BlackBackground/ReplayButton".visible = true
@@ -153,6 +160,10 @@ func game_lost(lost_to: Globals.Enemy) -> void:
 			child.queue_free()
 
 
+func _on_suffocated() -> void:
+	game_lost(Globals.Enemy.OXYGEN)
+
+
 func _on_clock_timeout() -> void:
 	Globals.time += 1
 	if Globals.time == 6:
@@ -160,4 +171,47 @@ func _on_clock_timeout() -> void:
 	elif Globals.time % 2 == 0:
 		%AmbienceClock.play()
 	
-	%Clock.start(Globals.clock_speed)
+	%Clock.start(Globals.CLOCK_SPEED)
+
+
+func _on_dad_cooldown_timeout() -> void:
+	%DadReactionTime.start(5)
+	
+	var tween: Tween = create_tween()
+	%FootstepsDadSlow.play()
+	tween.tween_property(%FootstepsDadSlow, "volume_db", -10.0, 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+
+func _on_dad_reaction_time_timeout() -> void:
+	dad_danger_zone = true
+	%DadWaitTime.start(3)
+
+
+func _on_dad_wait_time_timeout() -> void:
+	dad_danger_zone = false
+	
+	var tween: Tween = create_tween()
+	tween.tween_property(%FootstepsDadSlow, "volume_db", -30.0, 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await tween.finished
+	%FootstepsDadSlow.stop()
+	
+	%DadCooldown.start(Globals.functions["getDadCooldown"].call())
+
+
+#func _on_mom_cooldown_timeout() -> void:
+	#%MomReactionTime.start(4)
+	## play walk sfx fade-in
+#
+#
+#func _on_mom_reaction_time_timeout() -> void:
+	#mom_danger_zone = true
+	#%MomWaitTime.start(5)
+	## stop walk sfx abruptly
+#
+#
+#func _on_mom_wait_time_timeout() -> void:
+	#mom_danger_zone = false
+	## play walk sfx fade-out
+	## await 3s
+	## stop walk sfx
+	#%MomCooldown.start(Globals.functions["getMomCooldown"].call())

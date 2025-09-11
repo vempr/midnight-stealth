@@ -1,9 +1,9 @@
 extends Node
 
 enum Place { TABLE, DOOR, BED, COMPUTER }
-enum Enemy { DAD, MOM, TIME, NOTHING }
+enum Enemy { DAD, MOM, TIME, NOTHING, OXYGEN }
 
-const CLOCK_SPEED: int = 45
+const CLOCK_SPEED: int = 60
 const STARTING_TIME: int = 0
 const STARTING_PLACE: Place = Place.TABLE
 const STARTING_DOOR_CLOSED: bool = false
@@ -23,7 +23,11 @@ var functions = {
 	"getDogComfortCooldownTimer" = func() -> float:
 		return 25 + randf() * 20,
 	"getDogComfortDeadline" = func() -> float:
-		return 10 + randf() * 7
+		return 10 + randf() * 7,
+	"getDadCooldown" = func() -> float:
+		return 30 + randf() * 5,
+	"getMomCooldown" = func() -> float:
+		return 70 + randf() * 20,
 }
 
 func _ready() -> void:

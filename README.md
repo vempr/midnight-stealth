@@ -1,3 +1,15 @@
+## Brainstorming (my personal workspace to write out ideas to execute)
+### Dad/Mom AI
+- fundament: dad enemy occurs more than mom enemy
+- dad occurs every 30-35s, walking state for 15s, 5s reaction time/5s door has to be closed/5s walk away
+- mom occurs every 70-90s, walking state for 10s, 2s reaction time/5s door has to be open/3s walk away
+- maybe oxygen meter since only one threat can be present?
+	- oxygen depletes after 60s, 0 to full after 30s
+	- dad walks more often, so..
+- ok new idea:
+	- dad & oxygen are one threat
+	- mom stays the same, but laptop has to be turnt off when she is looking during middle phase (5s door has to be open)
+
 ## Assets & Sources
 - Font from https://www.dafont.com/vcr-osd-mono.font
 - Laptop from https://pngtree.com/free-png-vectors/laptop

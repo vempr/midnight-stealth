@@ -23,10 +23,36 @@
 [node name="ActualGame" type="Node2D"]
 script = ExtResource("1_sin48")
 
-[node name="Clock" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="Clock" type="Timer" parent="Timers"]
 unique_name_in_owner = true
 wait_time = 45.0
 autostart = true
+
+[node name="DadCooldown" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="DadReactionTime" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="DadWaitTime" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[node name="MomCooldown" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+
+[node name="MomReactionTime" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="MomWaitTime" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 5.0
 
 [node name="HUD" parent="." instance=ExtResource("1_et30f")]
 unique_name_in_owner = true
@@ -78,19 +104,10 @@ texture = ExtResource("9_ug0dy")
 [node name="Audios" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="FootstepsMomSlow" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("10_t8htw")
-
-[node name="FootstepsDadFast" type="AudioStreamPlayer" parent="Audios"]
-unique_name_in_owner = true
-stream = ExtResource("11_cvx8h")
-volume_db = -15.0
-
 [node name="AmbienceHorror" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 stream = ExtResource("12_spiit")
-volume_db = -7.0
+volume_db = -9.0
 
 [node name="AmbienceClock" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
@@ -114,10 +131,27 @@ volume_db = -20.0
 [node name="FootstepsDadSlow" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 stream = ExtResource("17_5wfq3")
+volume_db = -30.0
+
+[node name="FootstepsMomSlow" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("10_t8htw")
+volume_db = -20.0
+
+[node name="FootstepsDadFast" type="AudioStreamPlayer" parent="Audios"]
+unique_name_in_owner = true
+stream = ExtResource("11_cvx8h")
+volume_db = -15.0
 
 [node name="FootstepsMomFast" type="AudioStreamPlayer" parent="Audios"]
 unique_name_in_owner = true
 stream = ExtResource("18_bsq64")
 volume_db = -18.0
 
-[connection signal="timeout" from="Clock" to="." method="_on_clock_timeout"]
+[connection signal="timeout" from="Timers/Clock" to="." method="_on_clock_timeout"]
+[connection signal="timeout" from="Timers/DadCooldown" to="." method="_on_dad_cooldown_timeout"]
+[connection signal="timeout" from="Timers/DadReactionTime" to="." method="_on_dad_reaction_time_timeout"]
+[connection signal="timeout" from="Timers/DadWaitTime" to="." method="_on_dad_wait_time_timeout"]
+[connection signal="timeout" from="Timers/MomCooldown" to="." method="_on_mom_cooldown_timeout"]
+[connection signal="timeout" from="Timers/MomReactionTime" to="." method="_on_mom_reaction_time_timeout"]
+[connection signal="timeout" from="Timers/MomWaitTime" to="." method="_on_mom_wait_time_timeout"]
