@@ -3,6 +3,8 @@ is a game about you trying to finish your due assignments at night while your
 crazy parents are walking around the house. This is a *FNAF-esque + typing* game,
 so I do apologize if your hands aren't fast enough for Midnight Stealth. Made in **Godot** for **Siege Hackathon** :)
 
+You can watch the demo video [here](https://youtu.be/PNmCO0DFdXo). A few minutes later, it took me 5 attempts to beat and I was really close to 6AM.
+
 ![](https://github.com/vempr/midnight-stealth/blob/dd002d472cfec3be2e5436f5fca91c7575394f1a/assets/readme/week-2.jpg)
 
 ## How to beat MS
