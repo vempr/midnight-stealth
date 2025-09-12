@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyfra7gbggvyf"]
+[gd_scene load_steps=15 format=3 uid="uid://cyfra7gbggvyf"]
 
 [ext_resource type="Script" uid="uid://bw3aaa7etvmhj" path="res://scripts/computer.gd" id="1_om4aa"]
 [ext_resource type="AudioStream" uid="uid://dfkmn2ehc7lw7" path="res://assets/sfx/correct.mp3" id="2_7ikar"]
+[ext_resource type="FontFile" uid="uid://ovkr68jiax1v" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="2_tjrug"]
 [ext_resource type="AudioStream" uid="uid://wvvxf20ojcyg" path="res://assets/sfx/wrong.mp3" id="3_tjrug"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sc3q"]
@@ -82,6 +83,7 @@ offset_top = 37.0
 offset_right = 1324.0
 offset_bottom = 853.0
 theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("2_tjrug")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_om4aa")
 placeholder_text = "TOPIC: Central limit theorem
@@ -99,6 +101,7 @@ offset_top = 37.0
 offset_right = 1324.0
 offset_bottom = 853.0
 theme_override_constants/line_spacing = 1
+theme_override_fonts/font = ExtResource("2_tjrug")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ikar")
 theme_override_styles/focus = SubResource("StyleBoxFlat_uiul0")
@@ -149,7 +152,8 @@ offset_left = 285.0
 offset_top = 37.0
 offset_right = 953.0
 offset_bottom = 768.0
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("2_tjrug")
+theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_om4aa")
 placeholder_text = "TOPIC: Romeo and Juliet
 
@@ -164,9 +168,10 @@ unique_name_in_owner = true
 layout_mode = 2
 offset_left = 965.0
 offset_top = 37.0
-offset_right = 1662.0
+offset_right = 1633.0
 offset_bottom = 768.0
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("2_tjrug")
+theme_override_font_sizes/font_size = 22
 wrap_mode = 1
 
 [node name="EnglishSubmitButton" type="Button" parent="TabContainer/english_assignment_txt"]
