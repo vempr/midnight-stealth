@@ -4,7 +4,7 @@ enum Place { TABLE, DOOR, BED, COMPUTER }
 enum Enemy { DAD, MOM, TIME, NOTHING, OXYGEN }
 
 const STARTING_GAME_WON: bool = false
-const CLOCK_SPEED: int = 60
+const CLOCK_SPEED: int = 70
 const STARTING_TIME: int = 0
 const STARTING_PLACE: Place = Place.TABLE
 const STARTING_DOOR_CLOSED: bool = false
