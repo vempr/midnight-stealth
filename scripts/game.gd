@@ -33,9 +33,21 @@ func reset() -> void:
 	Globals.functions["reset_game_state"].call()
 
 
+func hide_game_end_text() -> void:
+	%WinLabel.visible = false
+	%LostToTimeLabel.visible = false
+	%LostToDadLabel.visible = false
+	%LostToMomLabel.visible = false
+	%LostToOxygenLabel.visible = false
+	%ReplayButton.visible = false
+	%MainMenuButton.visible = false
+
+
+
 func _on_replay_button_pressed() -> void:
 	%ReplayButton.disabled = true
 	reset()
+	hide_game_end_text()
 	_on_start_game()
 
 
@@ -48,10 +60,4 @@ func _on_main_menu_button_pressed() -> void:
 	await tween.finished
 	%BlackBackgroundCL.visible = false
 	
-	%WinLabel.visible = false
-	%LostToTimeLabel.visible = false
-	%LostToDadLabel.visible = false
-	%LostToMomLabel.visible = false
-	%LostToOxygenLabel.visible = false
-	%ReplayButton.visible = false
-	%MainMenuButton.visible = false
+	hide_game_end_text()
