@@ -1,20 +1,20 @@
 # midnight-stealth
 is a game about you trying to finish your due assignments at night while your
 crazy parents are walking around the house. This is a *FNAF-esque + typing* game,
-so I do apologize if your hands aren't fast enough for Midnight Stealth. Made in *Godot* for *Siege Hackathon* :)
+so I do apologize if your hands aren't fast enough for Midnight Stealth. Made in **Godot** for **Siege Hackathon** :)
 
 ![](https://github.com/vempr/midnight-stealth/blob/dd002d472cfec3be2e5436f5fca91c7575394f1a/assets/readme/week-2.jpg)
 
 ## How to beat MS
 
 Your parents are walking around the house and pass through your room.
-The objective is to know what to do for each enemy (spoilers):
-- For DAD, you must close the door before he reaches your room
-	- Also, if you fail to complete the DOG minigame, he will also kill you
-- For MOM, you must open the door and shut down your laptop before she reaches your room
-- You also can't keep your door closed because you will run out of oxygen
+The objective is to know what to do for each enemy (**spoilers**):
+- For **DAD**, you must close the door before he reaches your room
+	- Also, if you fail to complete the **DOG** minigame, he will also kill you
+- For **MOM**, you must open the door and shut down your laptop before she reaches your room
+- You also can't keep your door closed because you will run out of **oxygen**
 
--> One game hour corresponds to one minute, so you have 6 minutes to type out your assignments
+-> One game hour corresponds to one minute and ten seconds, so you have 7 minutes to type out your assignments
 
 ## Installation
 
